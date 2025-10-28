@@ -14,11 +14,16 @@ Create a virtual environment:
 
     python3 -m venv <add_your_venv_name>
 
-Mac and Linux users: if python3 does not work
 
-    cd ~
-    export PATH="/path/to/python3/bin:$PATH" >> .zshrc
-    cd path/to/wordle/directory
+If python3 does not work: for zshell and bash
+
+    echo 'export PATH="/path/to/python3/bin:$PATH"' >> ~/.zshrc
+
+If python3 does not work: for fish
+
+    echo 'export PATH="/path/to/python3/bin:$PATH"' >> ~/.config/fish/config.fish
+
+I do not use use windows, in this case google is your friend.
 
 Activate the virtual environment (linux or mac)
 
