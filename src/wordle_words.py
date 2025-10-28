@@ -1,3 +1,6 @@
+"""
+    Collection of 5756 five-letter words thanks to https://github.com/darkermango/5-Letter-words
+"""
 all_words = [
     "which",
     "there",

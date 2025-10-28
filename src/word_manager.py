@@ -174,6 +174,7 @@ class WordManager:
     # ---------------------------------------------------------------------------------------------
     #   Find Indices
     #
+    #       TODO --> Not used, remove
     @staticmethod
     def find_indices(item, lst):
         return [index for index, val in enumerate(lst) if val == item ]
@@ -181,6 +182,15 @@ class WordManager:
     #   Get Flags
     #
     def get_flags(self) -> list[int]:
+        """
+        After the Enter key is pressed or the keypad return key is selected, the chosen letters
+        are compared to the Wordle word and a background color flag based on the Wordle game logic.
+        The flags are:
+
+            InvalidPos          = -1    = (58, 58, 60)
+            ValidIncorrectPos   = 0     = (181, 159, 59)
+            ValidCorrectPos     = 1     = (83, 141, 78)
+        """
         found = []
         flags = [df.InvalidPos, df.InvalidPos, df.InvalidPos, df.InvalidPos, df.InvalidPos,]
         w_word = list(self.wordle_word)

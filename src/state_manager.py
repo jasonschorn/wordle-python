@@ -89,7 +89,7 @@ class StateManager:
     #
     def transition_to(self, state: str):
         #
-        #   This handles the first call to transition_to from set_initial_state
+        #   This "if" handles the first call to transition_to from set_initial_state
         #
         if not self.cur_state:
             self.cur_state = self.states[state]

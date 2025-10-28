@@ -4,6 +4,9 @@ import pygame as pg
 # ---------------------------------------------------------------------------------------------
 #   Rectangle Setter
 #
+#       Similar to the text class, this is overly generalized because I use this class
+#       in other programs that benefit from the generality provided by the builder pattern
+#
 class RectangleSetter:
     def __init__(self):
         self.x_coord = None
@@ -164,6 +167,8 @@ class RectangleBuilder:
 
     # -------------------------------------------------------------------------------------------------
     #   Banner
+    #
+    #       TODO --> Finish or remove
     def banner(self, x, y, w, h, color, thickness, curve):
         return (
             self.setter

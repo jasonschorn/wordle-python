@@ -17,6 +17,9 @@ class Index(IntEnum):
 # -------------------------------------------------------------------------------------------------
 #   Text Setter
 #
+#       Similar to the rectangle class, this is overly generalized because I use this class
+#       in other programs that benefit from the generality provided by the builder pattern
+#
 class TextSetter:
     def __init__(self):
         self.label = None

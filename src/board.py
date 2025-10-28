@@ -1,7 +1,3 @@
-# -------------------------------------------------------------------------------------------------
-#   Class used to create and manage the 6x5 Worlde game board
-#
-#
 from copy import deepcopy
 from src.rectangle import Rectangle, RectangleBuilder
 from src.text import Text, TextBuilder
@@ -16,6 +12,8 @@ __all__ = ["Board"]
 
 # -------------------------------------------------------------------------------------------------
 #   Board CLass
+#
+#       Responsible for creating and managing the 6x5 Wordle game board
 #
 class Board:
     def __init__(self):

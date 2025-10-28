@@ -57,7 +57,7 @@ class Game:
         #
         self.event_manager.register_events()  # Get random Wordle word
         #
-        #   Required to come after initializing all game specific event since it sets
-        #   the Initial state game button mouse over nd up listeners
+        #   Required to come after initializing all game-specific events since it sets
+        #   the Initial state game button mouse over and mouse up listeners
         #
         self.state_manager.set_initial_state("Initial")

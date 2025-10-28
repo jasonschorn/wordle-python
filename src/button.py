@@ -8,7 +8,9 @@ __all__ = ["Button"]
 # -------------------------------------------------------------------------------------------------
 #   Button
 #
-#       Class for creating the Nav buttons as well as Keypad buttons
+#       Class for creating the Nav buttons as well as Keypad buttons.
+#       This is a hybrid builder pattern where the builder is internal to the base
+#       class.  This is easily extended in order to use the builder pattern.
 #
 class Button:
     def __init__(self):

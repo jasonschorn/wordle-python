@@ -32,9 +32,9 @@ class Command(ABC):
 #
 class AddLetterCommand(Command):
     """
-        Command to Word Manager and adds a letter to the Wordle board based on user input
-            - Physical keyboard
-            - Game keypad buttons
+    Command to Word Manager and adds a letter to the Wordle board based on user input
+        - Physical keyboard
+        - Game keypad buttons
     """
 
     def __init__(self, receiver):
@@ -49,8 +49,8 @@ class AddLetterCommand(Command):
 #
 class RemoveLetterCommand(Command):
     """
-        Command to Word Manager and removes a letter from the Wordle board provided there
-        are letters on the board
+    Command to Word Manager and removes a letter from the Wordle board provided there
+    are letters on the board
     """
 
     def __init__(self, receiver):
@@ -65,7 +65,7 @@ class RemoveLetterCommand(Command):
 #
 class ValidateWordCommand(Command):
     """
-        Command to Word Manager to validate input after the Return key is pressed
+    Command to Word Manager to validate input after the Return key is pressed
     """
 
     def __init__(self, receiver):
@@ -130,7 +130,7 @@ class SetFlagsAndLetters(Command):
 #
 class UpdateKeypadAfterReturn(Command):
     """
-        Command to Word Manager that updates the background color on the keypad
+    Command to Word Manager that updates the background color on the keypad
     """
 
     def __init__(self, receiver):

@@ -32,7 +32,7 @@ class EventManager:
     #
     def register_events(self):
         """
-            Register all applicable events that can occur on the game
+            Register all applicable events that can occur in the game
 
                 Alpha_keymap    -> keys/value K_A = 97 ... K_Z = 122
 

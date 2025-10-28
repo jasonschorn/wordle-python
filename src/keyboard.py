@@ -26,19 +26,19 @@ class Index(IntEnum):
 #
 class Keyboard:
     """
-        The Keyboard class consists of a collection of (1) rectangles
-        that represent a hybrid keyboard keypad; (2) the letters of
-        the keypad as well as the return and backspace keys; (3) a
-        collection of letters that the player has chosen; (4) a set
-         of flags used to determine a given keys background color.
+    The Keyboard class consists of a collection of (1) rectangles
+    that represent a hybrid keyboard keypad; (2) the letters of
+    the keypad as well as the return and backspace keys; (3) a
+    collection of letters that the player has chosen; (4) a set
+    of flags used to determine a given keys background color.
 
-        The collection of chosen letters is in one-to-one
-        correspondence with the flags.  That is, whenever return is
-        pressed, the set of chosen letters are validated and
-        subsequently assigned one of three possible flags.
-            1- Invalid Chosen Key Color
-            2- Valid Incorrect Position Key Color
-            3- Valid Correct Position Key Color
+    The collection of chosen letters is in one-to-one
+    correspondence with the flags.  That is, whenever return is
+    pressed, the set of chosen letters are validated and
+    subsequently assigned one of three possible flags.
+        1- Invalid Chosen Key Color
+        2- Valid Incorrect Position Key Color
+        3- Valid Correct Position Key Color
     """
 
     def __init__(self):
@@ -75,8 +75,8 @@ class Keyboard:
     #
     def build_keypad(self):
         """
-            Builds the rectangular borders that represent the alpha keys of a QWERTY keyboard
-            as well as the Return and Backspace keys
+        Builds the rectangular borders that represent the alpha keys of a QWERTY keyboard
+        as well as the Return and Backspace keys
         """
         builder = RectangleBuilder()
         base_x_coords = [df.KeyboardBaseXR1, df.KeyboardBaseXR2, df.KeyboardBaseXR3]
@@ -127,12 +127,12 @@ class Keyboard:
     #
     def set_flags_and_letters(self, *args):
         """
-            Command(SetFlagsAndLetters)
-                --> WordManager(validate)
-                --> set_flags_and_letters
+        Command(SetFlagsAndLetters)
+            --> WordManager(validate)
+            --> set_flags_and_letters
 
-            Used to maintain a reference to the background color the keys must maintain after
-            the return key is pressed
+        Used to maintain a reference to the background color the keys must maintain after
+        the return key is pressed
         """
         for index, letter in enumerate(args[Index.Letters]):
             if letter not in self.chosen_letters:
@@ -144,10 +144,10 @@ class Keyboard:
     #
     def update_key(self, key):
         """
-            EventHandler(GameKeypadMouseMotionHandler)
-                --> update_key(key)
+        EventHandler(GameKeypadMouseMotionHandler)
+            --> update_key(key)
 
-            Resets the background color after mouse over
+        Resets the background color after mouse over
         """
         if not (self.chosen_letters and self.flags):
             key.color = df.KeyAvailableColor
@@ -175,15 +175,15 @@ class Keyboard:
     #
     def update_keypad(self, *args):
         """
-            Command(UpdateKeypadAfterReturn)
-                --> WordManager(validate)
-                --> update_keypad
+        Command(UpdateKeypadAfterReturn)
+            --> WordManager(validate)
+            --> update_keypad
 
-                The function set_flags_and_letters has to be called prior
+            The function set_flags_and_letters has to be called prior
 
-                All flags are one-to-one with letters
+            All flags are one-to-one with letters
 
-                Rectangles and letters are in 1-1 correspondence
+            Rectangles and letters are in 1-1 correspondence
         """
         rect_indices = [df.qwerty.index(i) for i in self.chosen_letters]
         #

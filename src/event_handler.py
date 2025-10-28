@@ -20,7 +20,7 @@ __all__ = [
 #
 class Index(IntEnum):
     """
-        For ease of determining the type of list is being accessed
+        For ease of determining the type of object that is being accessed
     """
     MousePos = 0
     ButtonName = 0
@@ -61,7 +61,6 @@ class NavButtonMouseUpHandler(Handler):
         self.state_manager = state_manager
 
     def handle_it(self, *args):
-        # self.state_manager.cur_state.check_for_mouse_up_event(args[Index.MousePos], self.state_manager)
         for button in self.state_manager.cur_state.buttons:
             if button.button_rectangle.collidepoint(args[Index.MousePos]):
                 self.state_manager.transition_to(button.label)

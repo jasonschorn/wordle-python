@@ -1,7 +1,17 @@
 # -------------------------------------------------------------------------------------------------
 #   Templates used to create various game assets
 #
+#       Several classes use the builder pattern and I felt it was easier to use templates
+#       that are in one single file for ease of updating values, it is easier to use
+#       hasatr together with setatr, and it prevents having to repeatedly type out each builder:
 #
+#       return (
+#             self.setter
+#             .set_some_attribute_1(val)
+#             .set_some_attribute_2(val)
+#             ...
+#             .set_some_attribute_k(val)
+#         )
 # -------------------------------------------------------------------------------------------------
 from src.assets.definitions import *
 # -------------------------------------------------------------------------------------------------

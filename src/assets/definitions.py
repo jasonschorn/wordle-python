@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------
-#   All constants as well as commonly used values throughout the game
+#   All constants as well as values that are used throughout the various game files
 #
 #
 # -------------------------------------------------------------------------------------------------

@@ -275,7 +275,6 @@ class PlayGameState(State):
         # ------------------------------------------------------------------------------------------
         #   Draw letters on Wordle board
         #
-        # if self.word_manager.renderable_letters:
         for index, letter in enumerate(word_manager.renderable_letters):
             letter.rectangle.center = board.tiles[index].rectangle.center
 
