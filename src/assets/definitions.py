@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------
-#   All constants as well as values that are used throughout the various game files
+#   All constants as well as commonly used values throughout the game
 #
 #
 # -------------------------------------------------------------------------------------------------
@@ -9,12 +9,13 @@ ScreenWidth = 600
 ScreenHeight = 750
 ScreenDimensions = (600,750)
 # -------------------------------------------------------------------------------------------------
+#   Images
+splash_screen_logo = "src/assets/wordle_splash_logo.png"
+#
+# -------------------------------------------------------------------------------------------------
 #   Frame Rate
 #
 Fps = 60
-# -------------------------------------------------------------------------------------------------
-#   Fonts
-#
 main_font = "src/assets/fonts/MonaspiceRnNerdFont-Regular.otf"
 splash_font = "src/assets/fonts/BigBlueTerm437NerdFont-Regular.ttf"
 # -------------------------------------------------------------------------------------------------

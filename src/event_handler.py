@@ -20,7 +20,7 @@ __all__ = [
 #
 class Index(IntEnum):
     """
-        For ease of determining the type of object that is being accessed
+        For ease of determining the type of list is being accessed
     """
     MousePos = 0
     ButtonName = 0
@@ -61,6 +61,7 @@ class NavButtonMouseUpHandler(Handler):
         self.state_manager = state_manager
 
     def handle_it(self, *args):
+        # self.state_manager.cur_state.check_for_mouse_up_event(args[Index.MousePos], self.state_manager)
         for button in self.state_manager.cur_state.buttons:
             if button.button_rectangle.collidepoint(args[Index.MousePos]):
                 self.state_manager.transition_to(button.label)
@@ -86,11 +87,14 @@ class GameKeypadMouseUpHandler(Handler):
         #
         for key in self.keyboard.keypad:
             if key.rectangle.collidepoint(args[Index.MousePos]):
-                self.add_letter_command.execute(
-                    self.keyboard.get_letter(
-                        self.keyboard.keypad.index(key)
+                #
+                # Exclude the case of clicking the Return or Delete keys
+                if not(self.keyboard.letters[key.index].label == "Return" or self.keyboard.letters[key.index].label == "Delete"):
+                    self.add_letter_command.execute(
+                        self.keyboard.get_letter(
+                            self.keyboard.keypad.index(key)
+                        )
                     )
-                )
 
 
 # -------------------------------------------------------------------------------------------------
@@ -120,6 +124,9 @@ class GameKeypadMouseMotionHandler(Handler):
 #   KEYPAD RETURN HANDLER
 #
 class GameKeypadReturnHandler(Handler):
+    """
+    Pressing the Return key send the add_letter command to Word Manager
+    """
     def __init__(self, keyboard, command):
         self.keyboard = keyboard
         self.validate_word_command = command
@@ -137,6 +144,9 @@ class GameKeypadReturnHandler(Handler):
 #   KEYPAD BACKSPACE HANDLER
 #
 class GameKeypadBackspaceHandler(Handler):
+    """
+    Pressing the Delete key send the remove_letter command to Word Manager
+    """
     def __init__(self, keyboard, command):
         self.keyboard = keyboard
         self.backspace_command = command

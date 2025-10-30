@@ -66,7 +66,8 @@ class StateManager:
         self.word_manager = WordManager(self.tiles, self.keyboard)
 
         self.add_letter_command = AddLetterCommand(self.word_manager)
-        self.remove_letter_command = RemoveLetterCommand(self.word_manager)
+        self.keypad_remove_letter_command = RemoveLetterCommand(self.word_manager)
+        self.keyboard_remove_letter_command = RemoveLetterCommand(self.word_manager)
         self.validate_word_command = ValidateWordCommand(self.word_manager)
         self.quit_game_command = QuitGameCommand()
         self.new_game_command = NewGameCommand(
@@ -89,7 +90,7 @@ class StateManager:
     #
     def transition_to(self, state: str):
         #
-        #   This "if" handles the first call to transition_to from set_initial_state
+        #   This handles the first call to transition_to from set_initial_state
         #
         if not self.cur_state:
             self.cur_state = self.states[state]
@@ -118,7 +119,7 @@ class StateManager:
             #
             keyboard_keypress_handler = KeyboardKeyPressHandler(self.add_letter_command)
             keyboard_return_handler = KeyboardReturnHandler(self.validate_word_command)
-            keyboard_backspace_handler = KeyboardBackspaceHandler(self.remove_letter_command)
+            keyboard_backspace_handler = KeyboardBackspaceHandler(self.keyboard_remove_letter_command)
 
             # -------------------------------------------------------------------------------------
             #   Initialize Keypad Command Handlers
@@ -137,7 +138,7 @@ class StateManager:
 
             game_keypad_backspace_handler = GameKeypadBackspaceHandler(
                 self.keyboard,
-                self.remove_letter_command
+                self.keypad_remove_letter_command
             )
 
             # -------------------------------------------------------------------------------------

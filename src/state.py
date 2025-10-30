@@ -75,11 +75,21 @@ class InitialGameState(State):
     #
     #
     def __init__(self):
-        self.name = "Initial"
-        self.buttons = self.initialize_buttons()
-        self.splash_logo = self.build_splash_logo()
-        self.splash_logo_shadow = self.build_splash_shadow_logo()
+        self.name       = "Initial"
+        self.buttons    = self.initialize_buttons()
+        self.logo       = self.initialize_logo()
 
+    # ---------------------------------------------------------------------------------------------
+    #   Initialize Buttons
+    #
+    @staticmethod
+    def initialize_logo():
+        if not pg.get_init():
+            pg.init()
+        init_logo = pg.image.load(df.splash_screen_logo)
+        resized_logo = pg.transform.scale(init_logo, (400, 400))
+
+        return resized_logo
     # ---------------------------------------------------------------------------------------------
     #   Initialize Buttons
     #
@@ -150,20 +160,13 @@ class InitialGameState(State):
     #
     def render(self, *args):
         canvas = args[RenderArgs.Canvas]
-        self.splash_logo.rectangle.center = (df.SplashX, df.SplashY)
-        self.splash_logo_shadow.rectangle.center = (df.SplashX + 3, df.SplashY + 5)
+        logo_rect = self.logo.get_rect()
+        logo_rect.center = (df.ScreenWidth/2, (df.ScreenHeight/2) - 100)
 
         for button in self.buttons:
             button.draw(canvas)
 
-        canvas.blit(
-            self.splash_logo_shadow.renderable_text_object,
-            self.splash_logo_shadow.rectangle
-        )
-        canvas.blit(
-            self.splash_logo.renderable_text_object,
-            self.splash_logo.rectangle
-        )
+        canvas.blit(self.logo, logo_rect)
 
 
 # -------------------------------------------------------------------------------------------------
@@ -275,6 +278,7 @@ class PlayGameState(State):
         # ------------------------------------------------------------------------------------------
         #   Draw letters on Wordle board
         #
+        # if self.word_manager.renderable_letters:
         for index, letter in enumerate(word_manager.renderable_letters):
             letter.rectangle.center = board.tiles[index].rectangle.center
 

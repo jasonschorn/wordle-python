@@ -97,6 +97,8 @@ class WordManager:
             chosen letters list as well as creates a renderable version of
             the letter and adds it to the renderable letter list.
         """
+
+        print(len(self.chosen_letters))
         if len(self.chosen_letters) < df.MaxLetters:
             # -------------------------------------------------------------------------------------
             #   Add <letter> to the current list of chosen letters
@@ -111,6 +113,9 @@ class WordManager:
 
             self.curRectIndex += 1
             self.curCol += 1
+
+        print(len(self.chosen_letters))
+
     # ---------------------------------------------------------------------------------------------
     #   Remove Letter
     #
@@ -174,7 +179,6 @@ class WordManager:
     # ---------------------------------------------------------------------------------------------
     #   Find Indices
     #
-    #       TODO --> Not used, remove
     @staticmethod
     def find_indices(item, lst):
         return [index for index, val in enumerate(lst) if val == item ]
@@ -182,15 +186,6 @@ class WordManager:
     #   Get Flags
     #
     def get_flags(self) -> list[int]:
-        """
-        After the Enter key is pressed or the keypad return key is selected, the chosen letters
-        are compared to the Wordle word and a background color flag based on the Wordle game logic.
-        The flags are:
-
-            InvalidPos          = -1    = (58, 58, 60)
-            ValidIncorrectPos   = 0     = (181, 159, 59)
-            ValidCorrectPos     = 1     = (83, 141, 78)
-        """
         found = []
         flags = [df.InvalidPos, df.InvalidPos, df.InvalidPos, df.InvalidPos, df.InvalidPos,]
         w_word = list(self.wordle_word)

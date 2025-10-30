@@ -1,0 +1,8 @@
+[project]
+name = "wordle"
+version = "0.1.0"
+description = "My attempt at over complicating the devlopment of Worlde using design patterns"
+requires-python = ">=3.13"
+dependencies = [
+    "pygame-ce>=2.5.6",
+]
